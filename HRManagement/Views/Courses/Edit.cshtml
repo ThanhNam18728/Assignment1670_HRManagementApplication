@@ -1,0 +1,37 @@
+﻿@model  HRManagement.ViewModels.CourseCategoryViewModels
+@{ ViewBag.Title = "Edit"; }
+
+<h2>Update Profile</h2>
+
+@using (Html.BeginForm("Edit", "Courses", "POST"))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.Course.Id)
+        @Html.LabelFor(m => m.Course.Name)
+        @Html.TextBoxFor(m => m.Course.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course.Name, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course.Description)
+        @Html.TextAreaFor(m => m.Course.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Course.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course.Category.Name)
+        @Html.DropDownListFor(m => m.Course.CategoryId,
+         new SelectList(Model.Categories, "Id", "Name"),
+         new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course.CategoryId, "", new { @class = "text-danger" })
+    </div>
+
+
+    <div class="form-inline">
+        <div class="form-group" style="margin-right: 90px">
+            <button type="submit" class="btn btn-primary">Update Course</button>
+        </div>
+        
+        @Html.ActionLink("Back", "Index", "Courses",
+             null,
+             new { @class = "btn btn-primary" })
+    </div>
+} 

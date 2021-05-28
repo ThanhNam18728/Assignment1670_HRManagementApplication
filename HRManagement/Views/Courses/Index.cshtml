@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HRManagement.Models.Course>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Manage Course</h2>
+<h3 class="btn btn-default" style="margin-bottom: 7px;">@Html.ActionLink("Create Course", "Create", "Courses")</h3>
+
+<div class="form-group">
+    @using (Html.BeginForm("Index", "Courses", FormMethod.Get))
+    {
+        @Html.TextBox("searchString", "")
+        <button type="submit"><i class="fa fa-search"></i></button>
+    }
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Name</td>
+            <td>Category</td>
+            <td>Description</td>
+            <td>Actions</td>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Category.Name</td>
+                <td>@item.Description</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Courses", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", "Courses", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Assign Course", "Index", "AssignedCourse", new { id = item.Id }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
