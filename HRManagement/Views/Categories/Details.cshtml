@@ -1,0 +1,17 @@
+﻿@model HRManagement.Models.Category
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Information of @Model.Name category</h2>
+
+<ul>
+    <li>#: @Model.Id</li>
+    <li>Name: @Model.Name</li>
+    <li>Description: @Model.Description</li>
+</ul>
+
+<div class="form-group">
+    @Html.ActionLink("Back", "Index", "Courses", new { @class = "btn btn-primary" })
+</div>
+

@@ -10,10 +10,10 @@ namespace HRManagement.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Name should not be Empty !!!")]
+        [Required(ErrorMessage = "Name should not be Empty")]
         [Display(Name = "Category Name")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Description should not be Empty !!!")]
+        [Required(ErrorMessage = "Description should not be Empty")]
         [Display(Name = "Category Description")]
         public string Description { get; set; }
     }
