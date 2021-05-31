@@ -1,0 +1,63 @@
+﻿@model HRManagement.Models.Trainee
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update this Profile</h2>
+
+@using (Html.BeginForm("Update", "Trainees", "POST"))
+{
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.FullName)
+    @Html.TextAreaFor(model => model.FullName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.DateOfBirth)
+    @Html.TextAreaFor(model => model.DateOfBirth, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Education)
+    @Html.TextAreaFor(model => model.Education, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ProgrammingLanguage)
+    @Html.TextAreaFor(model => model.ProgrammingLanguage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ProgrammingLanguage, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ToeicScore)
+    @Html.TextAreaFor(model => model.ToeicScore, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ToeicScore, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Experience)
+    @Html.TextAreaFor(model => model.Experience, new { @class = "form-control"})
+    @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Location)
+    @Html.TextAreaFor(model => model.Location, new { @class = "form-control"})
+    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Department)
+    @Html.TextAreaFor(model => model.Department, new { @class = "form-control"})
+    @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+</div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+    </div>
+}

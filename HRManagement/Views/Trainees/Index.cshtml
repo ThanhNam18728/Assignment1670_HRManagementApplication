@@ -1,0 +1,49 @@
+﻿@model IEnumerable<HRManagement.Models.Trainee>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>List of Trainee</h2>
+
+    <div class="form-group">
+        @using (Html.BeginForm("Index", "Todoes", FormMethod.Get))
+        {
+            @Html.TextBox("searchString", "")
+            <button type="submit"><i class="fa fa-search"></i></button>
+        }
+
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Program Language</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FullName</td>
+                <td>@item.Email</td>
+                <td>@item.ProgrammingLanguage</td>
+                <td>
+                    @Html.ActionLink("View Profile", "ViewProfile", "Trainees",
+                                      new { id = item.Id },new { @class = "btn btn-primary"})
+                    @Html.ActionLink("Update Profile", "Update", "Trainees",
+                                      new { id = item.Id },new { @class = "btn btn-danger"})
+                    @Html.ActionLink("Delete", "Delete", "Trainees",
+                                      new { id = item.Id }, new { @class = "btn btn-primary"})
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+   
+

@@ -24,16 +24,12 @@
                 <td>@item.Email</td>
                 <td>@item.course.Name</td>
                 <td>
-                    @Html.ActionLink("Details Infomation", "Details", "Trainers",
-                                                          new { id = item.Id },
-                                                          new { @class = "btn btn-primary"})
-                    @Html.ActionLink("Update this Trainer", "Update", "Trainers",
-                                                          new { id = item.Id },
-                                                          new { @class = "btn btn-danger"})
-                    @Html.ActionLink("Delete This trainer", "Delete", "Trainers",
-                                                          new { id = item.Id },
-                                                          new { @class = "btn btn-primary"})
-
+                    @Html.ActionLink("View Profile", "Details", "Trainers",
+                                       new { id = item.Id },new { @class = "btn btn-primary"})
+                    @Html.ActionLink("Update Profile", "Update", "Trainers",
+                                       new { id = item.Id },new { @class = "btn btn-danger"})
+                    @Html.ActionLink("Delete", "Delete", "Trainers",
+                                       new { id = item.Id },new { @class = "btn btn-primary"})
                 </td>
             </tr>
         }

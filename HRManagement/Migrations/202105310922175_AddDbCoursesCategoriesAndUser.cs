@@ -3,7 +3,7 @@ namespace HRManagement.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddTableCoursesAndCategories : DbMigration
+    public partial class AddDbCoursesCategoriesAndUser : DbMigration
     {
         public override void Up()
         {
@@ -69,9 +69,24 @@ namespace HRManagement.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
+                        FullName = c.String(),
+                        DateOfBirth = c.DateTime(),
+                        Education = c.String(),
+                        ProgrammingLanguage = c.String(),
+                        ToeicScore = c.Int(),
+                        Experience = c.String(),
+                        Department = c.String(),
+                        Location = c.String(),
+                        Type = c.String(),
+                        WorkingPlace = c.String(),
+                        EmailAddress = c.String(),
+                        CourseId = c.Int(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
+                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
+                .Index(t => t.CourseId);
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -102,6 +117,7 @@ namespace HRManagement.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.AspNetUsers", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -109,6 +125,7 @@ namespace HRManagement.Migrations
             DropForeignKey("dbo.Courses", "CategoryId", "dbo.Categories");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", new[] { "CourseId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });

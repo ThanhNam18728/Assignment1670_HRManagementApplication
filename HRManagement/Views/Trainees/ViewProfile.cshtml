@@ -1,0 +1,23 @@
+﻿@model HRManagement.Models.Trainee
+@{
+    ViewBag.Title = "ViewProfile";
+}
+
+<h2>ViewProfile</h2>
+
+<ul>
+    <li>#: @Model.Id</li>
+    <li>Full Name: @Model.FullName</li>
+    <li>Date of birth: @Model.DateOfBirth</li>
+    <li>User Name: @Model.UserName</li>
+    <li>Education: @Model.Education</li>
+    <li>Programming Language: @Model.ProgrammingLanguage</li>
+    <li>ToeicScore: @Model.ToeicScore</li>
+    <li>Experience: @Model.Experience</li>
+    <li>Department: @Model.Department</li>
+    <li>Location: @Model.Location</li>
+</ul>
+
+@Html.ActionLink("Back", "Index", "Trainees",
+    null,
+    new { @class = "btn btn-primary" })
