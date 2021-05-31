@@ -1,0 +1,43 @@
+﻿@model  IEnumerable<HRManagement.Models.Trainer>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>List of Trainer</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date of birth</th>
+            <th>Email</th>
+            <th>Assigned Courses</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.FullName</td>
+                <td>@item.DateOfBirth</td>
+                <td>@item.Email</td>
+                <td>@item.course.Name</td>
+                <td>
+                    @Html.ActionLink("Details Infomation", "Details", "Trainers",
+                                                          new { id = item.Id },
+                                                          new { @class = "btn btn-primary"})
+                    @Html.ActionLink("Update this Trainer", "Update", "Trainers",
+                                                          new { id = item.Id },
+                                                          new { @class = "btn btn-danger"})
+                    @Html.ActionLink("Delete This trainer", "Delete", "Trainers",
+                                                          new { id = item.Id },
+                                                          new { @class = "btn btn-primary"})
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

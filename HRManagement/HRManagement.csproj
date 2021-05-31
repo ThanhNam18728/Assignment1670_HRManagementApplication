@@ -168,16 +168,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TrainersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202105280046439_AddTableCoursesAndCategories.cs" />
     <Compile Include="Migrations\202105280046439_AddTableCoursesAndCategories.Designer.cs">
       <DependentUpon>202105280046439_AddTableCoursesAndCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105281252486_AddTableTrainer.cs" />
+    <Compile Include="Migrations\202105281252486_AddTableTrainer.Designer.cs">
+      <DependentUpon>202105281252486_AddTableTrainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105281254356_UppdateTableTrainer.cs" />
+    <Compile Include="Migrations\202105281254356_UppdateTableTrainer.Designer.cs">
+      <DependentUpon>202105281254356_UppdateTableTrainer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -186,6 +196,7 @@
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CourseCategoryViewModels.cs" />
@@ -253,6 +264,10 @@
     <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Trainers\Index.cshtml" />
+    <Content Include="Views\Trainers\Details.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Trainers\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -273,6 +288,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105280046439_AddTableCoursesAndCategories.resx">
       <DependentUpon>202105280046439_AddTableCoursesAndCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105281252486_AddTableTrainer.resx">
+      <DependentUpon>202105281252486_AddTableTrainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105281254356_UppdateTableTrainer.resx">
+      <DependentUpon>202105281254356_UppdateTableTrainer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

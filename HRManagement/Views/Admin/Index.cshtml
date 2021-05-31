@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Manage Account</h2>
+
+
+
+<div class="form-inline">
+    @Html.ActionLink("Manage Trainer", "Index", "Trainer", new { @class = "btn btn-default" })
+    @Html.ActionLink("Manage Training Staff", "Index", "Staff", new { @class = "btn btn-default" })
+</div>
