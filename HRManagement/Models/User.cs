@@ -13,6 +13,8 @@ namespace HRManagement.Models
         public string FullName { get; set; }
         [Required]
         [Display(Name = "Date of birth")]
-        public DateTime DateOfBirth { get; set; }        
+        public DateTime DateOfBirth { get; set; }
+        public int CourseId { get; set; }
+        public Course Course { get; set; }
     }
 }

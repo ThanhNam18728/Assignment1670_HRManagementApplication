@@ -20,7 +20,7 @@ namespace HRManagement.Controllers
         // GET: Trainers       
         public ActionResult Index()
         {
-            var trainersInDb = _context.Users.OfType<Trainer>().Include(t => t.course).ToList();
+            var trainersInDb = _context.Users.OfType<Trainer>().Include(t => t.Course).ToList();
             return View(trainersInDb);
         }
         public ActionResult Details(string id)

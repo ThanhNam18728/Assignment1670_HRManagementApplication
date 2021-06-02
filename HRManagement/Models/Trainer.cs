@@ -13,7 +13,6 @@ namespace HRManagement.Models
         [Required]
         [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
-        public int CourseId { get; set; }
-        public Course course { get; set; }
+        
     }
 }

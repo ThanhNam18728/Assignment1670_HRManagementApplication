@@ -182,6 +182,10 @@
     <Compile Include="Migrations\202105310922175_AddDbCoursesCategoriesAndUser.Designer.cs">
       <DependentUpon>202105310922175_AddDbCoursesCategoriesAndUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106020008536_AddFKToCoursesTable.cs" />
+    <Compile Include="Migrations\202106020008536_AddFKToCoursesTable.Designer.cs">
+      <DependentUpon>202106020008536_AddFKToCoursesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -286,6 +290,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105310922175_AddDbCoursesCategoriesAndUser.resx">
       <DependentUpon>202105310922175_AddDbCoursesCategoriesAndUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106020008536_AddFKToCoursesTable.resx">
+      <DependentUpon>202106020008536_AddFKToCoursesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
