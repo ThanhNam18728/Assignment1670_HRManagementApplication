@@ -17,19 +17,20 @@ namespace HRManagement.Controllers
             _context = new ApplicationDbContext();
         }
         // GET: AssignedCourses
-        public ActionResult Index()
-        {           
-            return View();
-        }
-        public ActionResult CourseTrainer()
+        public ActionResult Index(int id)
         {
-            var trainerIndb = _context.Users.OfType<Trainer>().Include(t => t.Course).ToList();
-            return View(trainerIndb);
+            var trainersInCourse = _context.Users.OfType<Trainer>().Where(t => t.CourseId == id).ToList();
+            var traineesInCourse = _context.Users.OfType<Trainee>().Where(t => t.CourseId == id).ToList();
+            var CategoryOfCourse = _context.Categories.Where(m => m.Id == id).ToList();
+
+            var UsersCourseView = new TrainersTraineesCourseViewModel()
+            {
+                Trainers = trainersInCourse,
+                Trainees = traineesInCourse,
+                Course = _context.Courses.SingleOrDefault(t => t.Id == id)
+            };
+            return View(UsersCourseView);
         }
-        public ActionResult CourseTrainee()
-        {
-            var traineeIndb = _context.Users.OfType<Trainee>().Include(t => t.Course).ToList();
-            return View(traineeIndb);
-        }
+        
     }
 }

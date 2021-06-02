@@ -1,9 +1,93 @@
-﻿
+﻿@model HRManagement.ViewModels.TrainersTraineesCourseViewModel
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Assigned Courses</h2>
+<h2>Assigned @Model.Course.Name Courses</h2>
 
-@Html.ActionLink("Manage courses of Trainer", "CourseTrainer", "AssignedCourses", new { @class = "btn btn-primary" })
-@Html.ActionLink("Manage courses of Trainee", "CourseTrainee", "AssignedCourses", new { @class = "btn btn-primary" })
+
+
+@Html.ActionLink("Assign Trainer to Course", "CreateTrainerAssign", "AssignedCourse",
+                                          new { id = Model.Course.Id },
+                                          new { @class = "btn btn-Pimary"})
+
+
+<table class="table table-bordered">
+    <thead style="background-color: cadetblue">
+        <tr>
+            <th>UserName</th>
+            <th>FullName</th>
+            <th>WorkingPlace</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var item in Model.Trainers)
+        {
+        <tr>
+            <td>@item.UserName</td>
+            <td>@item.FullName</td>
+            <td>@item.WorkingPlace</td>
+
+            <td>
+                @using (Html.BeginForm("DeleteTrainerAssign", "AssignedCourse", "POST"))
+                {
+                    <div>
+                        <input type="hidden" name="CourseId" value="@Model.Course.  Id">
+                        <input type="hidden" name="TrainerId" value="@item.Id">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Delete Trainer Assign</button>
+                    </div>
+                }
+                @Html.ActionLink("Change Trainer Assign", "ChangeTrainerAssign", "AssignedCourse",
+                                 new { CourseId = Model.Course.Id, TrainerId = item.Id },
+                                 new { @class = "btn btn-warning" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@Html.ActionLink("Assign Trainee to Course", "CreateTraineeAssign", "AssignedCourse",
+                                          new { id = Model.Course.Id },
+                                          new { @class = "btn btn-Pimary", style = "margin-bottom :20px" })
+<table class="table table-bordered">
+    <thead style="background-color: cadetblue">
+        <tr>
+            <th>UserName</th>
+            <th>FullName</th>
+            <th>Programming Language</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var item in Model.Trainees)
+        {
+        <tr>
+            <td>@item.UserName</td>
+            <td>@item.FullName</td>
+            <td>@item.ProgrammingLanguage</td>
+            <td>
+                @using (Html.BeginForm("DeleteTraineeAssign", "AssignedCourse", "POST"))
+                {
+                    <div>
+                        <input type="hidden" name="CourseId" value="@Model.Course.Id">
+                        <input type="hidden" name="TraineeId" value="@item.Id">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" style="margin-bottom :20px">Remove Course</button>
+                    </div>
+                }
+                @Html.ActionLink("Change Course", "ChangeTraineeAssign", "AssignedCourse",new{ CourseId = Model.Course.Id,TraineeId = item.Id},
+                                 new { @class = "btn btn-warning" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Back", "Index", "Courses",
+  new { id = Model.Course.Id },
+  new { @class = "btn btn-primary" })

@@ -104,6 +104,6 @@ namespace HRManagement.Controllers
 			_context.Courses.Remove(courseInDb);
 			_context.SaveChanges();
 			return RedirectToAction("Index");
-		}
+		}	
 	}
 }
