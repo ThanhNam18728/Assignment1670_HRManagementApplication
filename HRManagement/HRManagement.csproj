@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AssignedCoursesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -270,6 +271,9 @@
     <Content Include="Views\Trainees\Index.cshtml" />
     <Content Include="Views\Trainees\ViewProfile.cshtml" />
     <Content Include="Views\Trainees\Update.cshtml" />
+    <Content Include="Views\AssignedCourses\Index.cshtml" />
+    <Content Include="Views\AssignedCourses\CourseTrainer.cshtml" />
+    <Content Include="Views\AssignedCourses\CourseTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

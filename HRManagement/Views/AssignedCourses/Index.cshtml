@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Assigned Courses</h2>
+
+@Html.ActionLink("Manage courses of Trainer", "CourseTrainer", "AssignedCourses", new { @class = "btn btn-primary" })
+@Html.ActionLink("Manage courses of Trainee", "CourseTrainee", "AssignedCourses", new { @class = "btn btn-primary" })
