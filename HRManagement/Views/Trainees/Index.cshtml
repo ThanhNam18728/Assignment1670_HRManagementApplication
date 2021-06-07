@@ -20,7 +20,6 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Program Language</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -32,7 +31,6 @@
                 <td>@item.Id</td>
                 <td>@item.FullName</td>
                 <td>@item.Email</td>
-                <td>@item.ProgrammingLanguage</td>
                 <td>
                     @Html.ActionLink("View Profile", "ViewProfile", "Trainees",
                                       new { id = item.Id },new { @class = "btn btn-primary"})

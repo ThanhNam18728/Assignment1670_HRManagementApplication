@@ -10,7 +10,6 @@
             <th>Name</th>
             <th>Date of birth</th>
             <th>Email</th>
-            <th>Assigned Courses</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -21,8 +20,7 @@
 
                 <td>@item.FullName</td>
                 <td>@item.DateOfBirth</td>
-                <td>@item.Email</td>
-                <td>@item.Course.Name</td>
+                <td>@item.Email</td>                
                 <td>
                     @Html.ActionLink("View Profile", "Details", "Trainers",
                                        new { id = item.Id },new { @class = "btn btn-primary"})

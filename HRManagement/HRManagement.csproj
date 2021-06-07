@@ -169,7 +169,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\AssignedCoursesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -187,6 +186,10 @@
     <Compile Include="Migrations\202106020008536_AddFKToCoursesTable.Designer.cs">
       <DependentUpon>202106020008536_AddFKToCoursesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106070104476_UpdateUserModel.cs" />
+    <Compile Include="Migrations\202106070104476_UpdateUserModel.Designer.cs">
+      <DependentUpon>202106070104476_UpdateUserModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -200,7 +203,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CourseCategoryViewModels.cs" />
-    <Compile Include="ViewModels\TrainersTraineesCourseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -272,7 +274,6 @@
     <Content Include="Views\Trainees\Index.cshtml" />
     <Content Include="Views\Trainees\ViewProfile.cshtml" />
     <Content Include="Views\Trainees\Update.cshtml" />
-    <Content Include="Views\AssignedCourses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106020008536_AddFKToCoursesTable.resx">
       <DependentUpon>202106020008536_AddFKToCoursesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106070104476_UpdateUserModel.resx">
+      <DependentUpon>202106070104476_UpdateUserModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
