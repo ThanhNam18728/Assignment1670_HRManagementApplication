@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HRManagement.Models.Course>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Courses</h2>
+
+@foreach (var course in Model)
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Course Name: @course.Name</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.ActionLink(
+                  "Lits User",
+                  "Details",
+                  "AssignCourse",
+                  new { id = course.Id },
+                  new { @class = "btn btn-info" }
+                )
+                @Html.ActionLink(
+                  "Assign Course To User",
+                  "AssignCourse",
+                  "AssignCourse",
+                  new { id = course.Id },
+                  new { @class = "btn btn-success" }
+                )
+            </div>
+        </div>
+    </div>
+}
