@@ -21,5 +21,18 @@ namespace HRManagement.Controllers
             var coures = _context.Courses.ToList();
             return View(coures);
         }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var users = _context.CoursesUsers
+              .Where(t => t.CourseId == id)
+              .Select(t => t.User)
+              .ToList();
+
+            ViewBag.CourseId = id;
+
+            return View(users);
+        }
     }
 }
