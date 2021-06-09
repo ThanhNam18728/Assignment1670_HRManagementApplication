@@ -209,6 +209,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CourseCategoryViewModels.cs" />
+    <Compile Include="ViewModels\CourseUsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -282,6 +283,7 @@
     <Content Include="Views\Trainees\Update.cshtml" />
     <Content Include="Views\AssignCourse\Index.cshtml" />
     <Content Include="Views\AssignCourse\Details.cshtml" />
+    <Content Include="Views\AssignCourse\AssignCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
