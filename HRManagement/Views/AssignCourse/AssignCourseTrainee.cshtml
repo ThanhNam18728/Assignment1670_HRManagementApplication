@@ -1,0 +1,26 @@
+﻿@model HRManagement.ViewModels.CourseTraineesViewModel
+@{
+    ViewBag.Title = "AssignCourse";
+}
+
+<h2>Assign Course To Trainee</h2>
+
+@Html.ValidationSummary(false, "", new { @class = "bg-danger" })
+
+@using (Html.BeginForm("AssignCourseTrainee", "AssignCourse", FormMethod.Post))
+{
+
+    <div class="form-group">
+        Username
+        @Html.HiddenFor(m => m.CourseId)
+        @Html.DropDownListFor(m => m.TraineeId,
+         new SelectList(Model.Trainees, "Id", "Username"),
+         new { @class = "form-control" }
+         )
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Assign</button>
+    </div>
+}
+

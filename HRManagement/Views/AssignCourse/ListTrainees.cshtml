@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HRManagement.Models.Trainee>
+@{
+    ViewBag.Title = "ListTrainees";
+}
+
+<h2>List Of Trainees Assigned To Course</h2>
+
+<div class="form-group">
+    @Html.ActionLink("Back", "Index", "AssignCourse", null,
+      new { @class = "btn btn-primary" })
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trainee in Model)
+        {
+            <tr>
+                <td>@trainee.UserName</td>
+                <td>@trainee.FullName</td>
+                <td>
+                    @Html.ActionLink("Remove Trainee From Course", "RemoveTrainee",
+                      new { id = ViewBag.CourseId, traineeId = trainee.Id },
+                      new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

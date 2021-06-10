@@ -203,13 +203,30 @@
     <Compile Include="Migrations\202106100025504_addDbTrainers.Designer.cs">
       <DependentUpon>202106100025504_addDbTrainers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106100204279_RemaneDbCourseUsers.cs" />
+    <Compile Include="Migrations\202106100204279_RemaneDbCourseUsers.Designer.cs">
+      <DependentUpon>202106100204279_RemaneDbCourseUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106100209391_AddCoursesTraineesTable.cs" />
+    <Compile Include="Migrations\202106100209391_AddCoursesTraineesTable.Designer.cs">
+      <DependentUpon>202106100209391_AddCoursesTraineesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106100234430_AddTraineesTable.cs" />
+    <Compile Include="Migrations\202106100234430_AddTraineesTable.Designer.cs">
+      <DependentUpon>202106100234430_AddTraineesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106100311423_EditCoursesTraineesTable.cs" />
+    <Compile Include="Migrations\202106100311423_EditCoursesTraineesTable.Designer.cs">
+      <DependentUpon>202106100311423_EditCoursesTraineesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\CoursesUsers.cs" />
+    <Compile Include="Models\CoursesTrainees.cs" />
+    <Compile Include="Models\CoursesTrainers.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Trainee.cs" />
     <Compile Include="Models\Trainer.cs" />
@@ -217,6 +234,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CourseCategoryViewModels.cs" />
+    <Compile Include="ViewModels\CourseTraineesViewModel.cs" />
     <Compile Include="ViewModels\CourseTrainersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +310,8 @@
     <Content Include="Views\AssignCourse\Index.cshtml" />
     <Content Include="Views\AssignCourse\Details.cshtml" />
     <Content Include="Views\AssignCourse\AssignCourseTrainer.cshtml" />
+    <Content Include="Views\AssignCourse\ListTrainees.cshtml" />
+    <Content Include="Views\AssignCourse\AssignCourseTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +347,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106100025504_addDbTrainers.resx">
       <DependentUpon>202106100025504_addDbTrainers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106100204279_RemaneDbCourseUsers.resx">
+      <DependentUpon>202106100204279_RemaneDbCourseUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106100209391_AddCoursesTraineesTable.resx">
+      <DependentUpon>202106100209391_AddCoursesTraineesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106100234430_AddTraineesTable.resx">
+      <DependentUpon>202106100234430_AddTraineesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106100311423_EditCoursesTraineesTable.resx">
+      <DependentUpon>202106100311423_EditCoursesTraineesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

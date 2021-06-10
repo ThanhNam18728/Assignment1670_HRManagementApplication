@@ -7,7 +7,7 @@ using System.Web;
 
 namespace HRManagement.Models
 {
-    public class CoursesUsers
+    public class CoursesTrainers
     {
         [Key]
         [Column(Order = 1)]
