@@ -6,11 +6,11 @@ using HRManagement.Models;
 
 namespace HRManagement.ViewModels
 {
-    public class CourseUsersViewModel 
+    public class CourseTrainersViewModel 
     {
         public int CourseId { get; set; }
-        public string UserId { get; set; }
-        public IEnumerable<ApplicationUser> Users { get; set; }
+        public string TrainerId { get; set; }
+        public IEnumerable<Trainer> Trainers { get; set; }
 
     }
 }

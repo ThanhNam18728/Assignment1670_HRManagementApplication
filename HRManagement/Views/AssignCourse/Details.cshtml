@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HRManagement.Models.ApplicationUser>
+﻿@model IEnumerable<HRManagement.Models.Trainer>
 @{
     ViewBag.Title = "Details";
 }
@@ -14,19 +14,19 @@
     <thead>
         <tr>
             <th>Username</th>
-            <th>Email</th>
+            <th>Full Name</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var user in Model)
+        @foreach (var trainer in Model)
         {
             <tr>
-                <td>@user.Email</td>
-                <td>@user.UserName</td>
+                <td>@trainer.UserName</td>
+                <td>@trainer.FullName</td>
                 <td>
                     @Html.ActionLink("Remove User From Course","RemoveUser",
-                      new { id = ViewBag.TeamId, userId = user.Id },
+                      new { id = ViewBag.CourseId, Trainer = trainer.Id },
                       new { @class = "btn btn-danger" })
                 </td>
             </tr>

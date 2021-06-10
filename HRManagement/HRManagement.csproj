@@ -195,6 +195,14 @@
     <Compile Include="Migrations\202106070132447_AddDbCoursesUsers.Designer.cs">
       <DependentUpon>202106070132447_AddDbCoursesUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106090150571_ChangeFK.cs" />
+    <Compile Include="Migrations\202106090150571_ChangeFK.Designer.cs">
+      <DependentUpon>202106090150571_ChangeFK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106100025504_addDbTrainers.cs" />
+    <Compile Include="Migrations\202106100025504_addDbTrainers.Designer.cs">
+      <DependentUpon>202106100025504_addDbTrainers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -209,7 +217,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CourseCategoryViewModels.cs" />
-    <Compile Include="ViewModels\CourseUsersViewModel.cs" />
+    <Compile Include="ViewModels\CourseTrainersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -283,7 +291,7 @@
     <Content Include="Views\Trainees\Update.cshtml" />
     <Content Include="Views\AssignCourse\Index.cshtml" />
     <Content Include="Views\AssignCourse\Details.cshtml" />
-    <Content Include="Views\AssignCourse\AssignCourse.cshtml" />
+    <Content Include="Views\AssignCourse\AssignCourseTrainer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +321,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106070132447_AddDbCoursesUsers.resx">
       <DependentUpon>202106070132447_AddDbCoursesUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106090150571_ChangeFK.resx">
+      <DependentUpon>202106090150571_ChangeFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106100025504_addDbTrainers.resx">
+      <DependentUpon>202106100025504_addDbTrainers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

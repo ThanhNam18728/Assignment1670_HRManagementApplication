@@ -33,7 +33,7 @@ namespace HRManagement.Controllers
         {
             var users = _context.CoursesUsers
               .Where(t => t.CourseId == id)
-              .Select(t => t.User)
+              .Select(t => t.Trainer)
               .ToList();
 
             ViewBag.CourseId = id;
@@ -42,43 +42,41 @@ namespace HRManagement.Controllers
         }
 
         [HttpGet]
-        public ActionResult AssignCourse(int id)
+        public ActionResult AssignCourseTrainer(int id)
         {
-            var users = _context.Users.ToList();
+            var trainer = _context.Users.OfType<Trainer>().ToList();
 
-            var usersInCourse = _context.CoursesUsers
+            var trainersInCourse = _context.CoursesUsers
               .Where(t => t.CourseId == id)
-              .Select(t => t.User)
+              .Select(t => t.Trainer)
               .ToList();
 
-            var VModel = new CourseUsersViewModel();
+            var VModel = new CourseTrainersViewModel();
 
-            if (usersInCourse == null)
+            if (trainersInCourse == null)
             {
                 VModel.CourseId = id;
-                VModel.Users = users;
-
+                VModel.Trainers = trainer;
 
                 return View(VModel);
             }
 
-            var viewModel = new CourseUsersViewModel
+            var viewModel = new CourseTrainersViewModel
             {
                 CourseId = id,
-                Users = users
+                Trainers = trainer
             };
 
             return View(viewModel);
         }
-       
 
         [HttpPost]
-        public ActionResult AssignCourse(CoursesUsers model)
+        public ActionResult AssignCourseTrainer(CoursesUsers model)
         {
             var courseUser = new CoursesUsers
             {
                 CourseId = model.CourseId,
-                UserId = model.UserId
+                TrainerId = model.TrainerId
             };
 
             _context.CoursesUsers.Add(courseUser);

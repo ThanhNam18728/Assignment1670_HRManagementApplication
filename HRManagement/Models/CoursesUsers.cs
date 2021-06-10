@@ -11,9 +11,9 @@ namespace HRManagement.Models
     {
         [Key]
         [Column(Order = 1)]
-        [ForeignKey("User")]
-        public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        [ForeignKey("Trainer")]
+        public string TrainerId { get; set; }
+        public Trainer Trainer { get; set; }
         [Key]
         [Column(Order = 2)]
         [ForeignKey("Course")]
