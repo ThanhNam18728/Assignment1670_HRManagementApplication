@@ -28,6 +28,12 @@ namespace HRManagement.Controllers
             return View(coures);
         }
 
+        /// <summary>
+        /// This function is used to display a list of trainers in course
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
         [HttpGet]
         public ActionResult Details(int id)
         {
@@ -41,6 +47,12 @@ namespace HRManagement.Controllers
             return View(users);
         }
 
+
+        /// <summary>
+        /// This function is used to assign a Trainer to Course
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult AssignCourseTrainer(int id)
         {
@@ -83,6 +95,27 @@ namespace HRManagement.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+
+        /// <summary>
+        ///  Remove Trainer from Course
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult RemoveTrainer(int id, string trainerId)
+        {
+            var trainerInCourse = _context.CoursesUsers
+              .SingleOrDefault(t => t.CourseId == id && t.TrainerId == trainerId);
+
+            if (trainerInCourse == null) return HttpNotFound();
+
+            _context.CoursesUsers.Remove(trainerInCourse);
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", new { id = id });
         }
     }
 }

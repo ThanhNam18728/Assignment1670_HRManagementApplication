@@ -25,8 +25,8 @@
                 <td>@trainer.UserName</td>
                 <td>@trainer.FullName</td>
                 <td>
-                    @Html.ActionLink("Remove User From Course","RemoveUser",
-                      new { id = ViewBag.CourseId, Trainer = trainer.Id },
+                    @Html.ActionLink("Remove Trainer From Course","RemoveTrainer",
+                      new { id = ViewBag.CourseId, trainerId = trainer.Id },
                       new { @class = "btn btn-danger" })
                 </td>
             </tr>

@@ -14,15 +14,31 @@
         <div class="panel-body">
             <div class="form-group">
                 @Html.ActionLink(
-                  "Lits User",
+                  "List Trainers",
                   "Details",
                   "AssignCourse",
                   new { id = course.Id },
                   new { @class = "btn btn-info" }
                 )
                 @Html.ActionLink(
-                  "Assign Course To User",
+                  "Assign Course To Trainer",
                   "AssignCourseTrainer",
+                  "AssignCourse",
+                  new { id = course.Id },
+                  new { @class = "btn btn-success" }
+                )
+            </div>
+            <div class="form-group">
+                @Html.ActionLink(
+                  "List Trainees",
+                  "ListTrainees",
+                  "AssignCourse",
+                  new { id = course.Id },
+                  new { @class = "btn btn-info" }
+                )
+                @Html.ActionLink(
+                  "Assign Course To Trainee",
+                  "AssignCourseTrainee",
                   "AssignCourse",
                   new { id = course.Id },
                   new { @class = "btn btn-success" }
