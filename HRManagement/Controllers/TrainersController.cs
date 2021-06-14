@@ -67,6 +67,6 @@ namespace HRManagement.Controllers
             _context.Users.Remove(trainerInDb);
             _context.SaveChanges();
             return RedirectToAction("Index");
-        }        
+        }              
     }
 }

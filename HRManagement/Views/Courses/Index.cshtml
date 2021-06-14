@@ -5,6 +5,7 @@
 
 <h2>Manage Course</h2>
 <h3 class="btn btn-default" style="margin-bottom: 7px;">@Html.ActionLink("Create Course", "Create", "Courses")</h3>
+<h3 class="btn btn-default" style="margin-bottom: 7px;">@Html.ActionLink("Course Categories ", "Index", "Categories")</h3>
 
 <div class="form-group">
     @using (Html.BeginForm("Index", "Courses", FormMethod.Get))
@@ -36,8 +37,7 @@
                 <td>@item.Description</td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", "Courses", new { id = item.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Delete", "Delete", "Courses", new { id = item.Id }, new { @class = "btn btn-danger" })
-                    @Html.ActionLink("Assign Course", "Index", "AssignedCourses", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", "Courses", new { id = item.Id }, new { @class = "btn btn-danger" })                
                 </td>
             </tr>
         }
