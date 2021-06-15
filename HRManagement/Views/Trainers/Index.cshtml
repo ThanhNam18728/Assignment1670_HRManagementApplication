@@ -23,11 +23,13 @@
                 <td>@item.Email</td>                
                 <td>
                     @Html.ActionLink("View Profile", "Details", "Trainers",
-                                       new { id = item.Id },new { @class = "btn btn-primary"})
+                                       new { id = item.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Update Profile", "Update", "Trainers",
-                                       new { id = item.Id },new { @class = "btn btn-danger"})
+                                       new { id = item.Id }, new { @class = "btn btn-danger" })
                     @Html.ActionLink("Delete", "Delete", "Trainers",
-                                       new { id = item.Id },new { @class = "btn btn-primary"})
+                                       new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("My Course", "ViewAssignedCourses", "Trainers",
+                                       new { id = item.Id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }

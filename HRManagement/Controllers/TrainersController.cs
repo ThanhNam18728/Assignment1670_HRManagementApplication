@@ -67,6 +67,13 @@ namespace HRManagement.Controllers
             _context.Users.Remove(trainerInDb);
             _context.SaveChanges();
             return RedirectToAction("Index");
-        }              
+        }   
+        
+        public ActionResult ViewAssignedCourses(string id)
+        {
+            var course = _context.CoursesTrainers.Where(t => t.TrainerId == id).Select(t => t.Course).ToList();
+           
+            return View(course);
+        }
     }
 }
