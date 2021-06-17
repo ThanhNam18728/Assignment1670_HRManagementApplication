@@ -20,19 +20,19 @@ namespace HRManagement.Controllers
         // GET: Trainers       
         public ActionResult Index()
         {
-            var trainersInDb = _context.Users.OfType<Trainer>().ToList();
+            var trainersInDb = _context.Trainers.ToList();
             return View(trainersInDb);
         }
         public ActionResult Details(string id)
         {
-            var trainerInDb = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == id);
+            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.Id == id);
             return View(trainerInDb);
         }
 
 
         public ActionResult Update(string id)
         {
-            var trainerInDb = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == id);
+            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.Id == id);
             if (trainerInDb == null) return HttpNotFound();
 
             return View(trainerInDb);
@@ -45,12 +45,10 @@ namespace HRManagement.Controllers
                return View();
             }
 
-            var TrainerInDb = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == trainer.Id);
+            var TrainerInDb = _context.Trainers.SingleOrDefault(t => t.Id == trainer.Id);
             {
                 TrainerInDb.FullName = trainer.FullName;
-                TrainerInDb.UserName = trainer.UserName;
                 TrainerInDb.DateOfBirth = trainer.DateOfBirth;
-                TrainerInDb.PhoneNumber = trainer.PhoneNumber;
                 TrainerInDb.WorkingPlace = trainer.WorkingPlace;
                 TrainerInDb.EmailAddress = trainer.EmailAddress;
                 TrainerInDb.Type = trainer.Type;
@@ -60,11 +58,11 @@ namespace HRManagement.Controllers
         }
         public ActionResult Delete(string id)
         {
-            var trainerInDb = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == id);
+            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.Id == id);
 
             if (trainerInDb == null) return HttpNotFound();
 
-            _context.Users.Remove(trainerInDb);
+            _context.Trainers.Remove(trainerInDb);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }   

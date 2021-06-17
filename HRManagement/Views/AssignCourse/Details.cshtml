@@ -13,7 +13,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Username</th>
+            <th>User ID</th>
             <th>Full Name</th>
             <th>Action</th>
         </tr>
@@ -22,7 +22,7 @@
         @foreach (var trainer in Model)
         {
             <tr>
-                <td>@trainer.UserName</td>
+                <td>@trainer.Id</td>
                 <td>@trainer.FullName</td>
                 <td>
                     @Html.ActionLink("Remove Trainer From Course","RemoveTrainer",

@@ -11,25 +11,17 @@
 
     <div class="form-group">
         @Html.HiddenFor(model => model.Id)
-        @Html.LabelFor(model => model.UserName)
-        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
         @Html.LabelFor(model => model.FullName)
         @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
     </div>
+    
     <div class="form-group">
         @Html.LabelFor(model => model.DateOfBirth)
         @Html.TextAreaFor(model => model.DateOfBirth, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.PhoneNumber)
-        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-    </div>
+    
     <div class="form-group">
         @Html.LabelFor(model => model.WorkingPlace)
         @Html.TextBoxFor(model => model.WorkingPlace, new { @class = "form-control" })
