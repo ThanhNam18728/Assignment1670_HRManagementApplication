@@ -10,7 +10,7 @@ namespace HRManagement.ViewModels
     {
         public int CourseId { get; set; }
         public string TrainerId { get; set; }
-        public IEnumerable<Trainer> Trainers { get; set; }
+        public IEnumerable<Trainer> Trainers { get; set; }        
 
     }
 }

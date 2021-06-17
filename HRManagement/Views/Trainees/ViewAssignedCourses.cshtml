@@ -1,0 +1,25 @@
+﻿@model IEnumerable<HRManagement.Models.Course>
+@{
+    ViewBag.Title = "ViewAssignedCourses";
+}
+
+<h2>All My Courses</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Course Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

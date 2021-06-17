@@ -58,5 +58,12 @@ namespace HRManagement.Controllers
 
             return RedirectToAction ("Index");
         }
+
+        public ActionResult ViewAssignedCourses(string id)
+        {
+            var courses = _context.CoursesTrainees.Where(t => t.TraineeId == id).Select(t => t.Course).ToList();
+
+            return View(courses);
+        }
     }
 }
