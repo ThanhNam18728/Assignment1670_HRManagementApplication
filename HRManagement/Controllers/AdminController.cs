@@ -23,32 +23,6 @@ namespace HRManagement.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-        [HttpGet]
-        public ActionResult CreateTrainer()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult CreateTrainer(RegisterViewModel model)
-        {
-            if(!ModelState.IsValid)
-            {
-                return View();
-            }
-            var user = new ApplicationUser
-            {
-                UserName = model.Email,
-                Email = model.Email
-            };
-            var result = _userManager.Create(user, model.Password);
-            if(result.Succeeded)
-            {
-                _userManager.AddToRole(user.Id, model.Role);
-                _context.SaveChanges();
-            }
-            return View(model);
-        }
+        }   
     }
 }
