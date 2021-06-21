@@ -179,45 +179,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105310922175_AddDbCoursesCategoriesAndUser.cs" />
-    <Compile Include="Migrations\202105310922175_AddDbCoursesCategoriesAndUser.Designer.cs">
-      <DependentUpon>202105310922175_AddDbCoursesCategoriesAndUser.cs</DependentUpon>
+    <Compile Include="Migrations\202106211004157_FixErrorDB.cs" />
+    <Compile Include="Migrations\202106211004157_FixErrorDB.Designer.cs">
+      <DependentUpon>202106211004157_FixErrorDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106020008536_AddFKToCoursesTable.cs" />
-    <Compile Include="Migrations\202106020008536_AddFKToCoursesTable.Designer.cs">
-      <DependentUpon>202106020008536_AddFKToCoursesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106070104476_UpdateUserModel.cs" />
-    <Compile Include="Migrations\202106070104476_UpdateUserModel.Designer.cs">
-      <DependentUpon>202106070104476_UpdateUserModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106070132447_AddDbCoursesUsers.cs" />
-    <Compile Include="Migrations\202106070132447_AddDbCoursesUsers.Designer.cs">
-      <DependentUpon>202106070132447_AddDbCoursesUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106090150571_ChangeFK.cs" />
-    <Compile Include="Migrations\202106090150571_ChangeFK.Designer.cs">
-      <DependentUpon>202106090150571_ChangeFK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106100025504_addDbTrainers.cs" />
-    <Compile Include="Migrations\202106100025504_addDbTrainers.Designer.cs">
-      <DependentUpon>202106100025504_addDbTrainers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106100204279_RemaneDbCourseUsers.cs" />
-    <Compile Include="Migrations\202106100204279_RemaneDbCourseUsers.Designer.cs">
-      <DependentUpon>202106100204279_RemaneDbCourseUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106100209391_AddCoursesTraineesTable.cs" />
-    <Compile Include="Migrations\202106100209391_AddCoursesTraineesTable.Designer.cs">
-      <DependentUpon>202106100209391_AddCoursesTraineesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106100234430_AddTraineesTable.cs" />
-    <Compile Include="Migrations\202106100234430_AddTraineesTable.Designer.cs">
-      <DependentUpon>202106100234430_AddTraineesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106100311423_EditCoursesTraineesTable.cs" />
-    <Compile Include="Migrations\202106100311423_EditCoursesTraineesTable.Designer.cs">
-      <DependentUpon>202106100311423_EditCoursesTraineesTable.cs</DependentUpon>
+    <Compile Include="Migrations\202106211005044_AddDB.cs" />
+    <Compile Include="Migrations\202106211005044_AddDB.Designer.cs">
+      <DependentUpon>202106211005044_AddDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -230,7 +198,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Trainee.cs" />
     <Compile Include="Models\Trainer.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CourseCategoryViewModels.cs" />
@@ -314,6 +282,7 @@
     <Content Include="Views\AssignCourse\AssignCourseTrainee.cshtml" />
     <Content Include="Views\Trainers\ViewAssignedCourses.cshtml" />
     <Content Include="Views\Trainees\ViewAssignedCourses.cshtml" />
+    <Content Include="Views\Admin\CreateTrainer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,35 +301,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105310922175_AddDbCoursesCategoriesAndUser.resx">
-      <DependentUpon>202105310922175_AddDbCoursesCategoriesAndUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106211004157_FixErrorDB.resx">
+      <DependentUpon>202106211004157_FixErrorDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106020008536_AddFKToCoursesTable.resx">
-      <DependentUpon>202106020008536_AddFKToCoursesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106070104476_UpdateUserModel.resx">
-      <DependentUpon>202106070104476_UpdateUserModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106070132447_AddDbCoursesUsers.resx">
-      <DependentUpon>202106070132447_AddDbCoursesUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106090150571_ChangeFK.resx">
-      <DependentUpon>202106090150571_ChangeFK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106100025504_addDbTrainers.resx">
-      <DependentUpon>202106100025504_addDbTrainers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106100204279_RemaneDbCourseUsers.resx">
-      <DependentUpon>202106100204279_RemaneDbCourseUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106100209391_AddCoursesTraineesTable.resx">
-      <DependentUpon>202106100209391_AddCoursesTraineesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106100234430_AddTraineesTable.resx">
-      <DependentUpon>202106100234430_AddTraineesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106100311423_EditCoursesTraineesTable.resx">
-      <DependentUpon>202106100311423_EditCoursesTraineesTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106211005044_AddDB.resx">
+      <DependentUpon>202106211005044_AddDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

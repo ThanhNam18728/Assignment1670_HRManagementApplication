@@ -17,9 +17,8 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>#</th>
                 <th>Name</th>
-                <th>Email</th>
+                <th>Date of birth</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -28,9 +27,8 @@
             @foreach (var item in Model)
             {
             <tr>
-                <td>@item.Id</td>
                 <td>@item.FullName</td>
-                <td>@item.Email</td>
+                <td>@item.DateOfBirth.ToString("MMM-dd-yyyy")</td>
                 <td>
                     @Html.ActionLink("View Profile", "ViewProfile", "Trainees",
                                       new { id = item.Id }, new { @class = "btn btn-primary" })

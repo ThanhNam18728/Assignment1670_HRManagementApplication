@@ -13,6 +13,7 @@ namespace HRManagement.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<CoursesTrainers> CoursesTrainers { get; set; }
         public DbSet<CoursesTrainees> CoursesTrainees { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
         public DbSet<Trainee> Trainees { get; set; }
 

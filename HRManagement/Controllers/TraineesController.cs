@@ -14,19 +14,19 @@ namespace HRManagement.Controllers
         // GET: Trainees
         public ActionResult Index()
         {
-            return View(_context.Users.OfType<Trainee>().ToList());
+            return View(_context.Trainees.ToList());
         }
         public ActionResult ViewProfile(string id)
         {
             if (id == null) return HttpNotFound();
-            var traineeInDb = _context.Users.OfType<Trainee>().SingleOrDefault(t => t.Id == id);
+            var traineeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == id);
             return View(traineeInDb);
         }
         public ActionResult Delete(string id)
         {
-            var traieeInDb = _context.Users.OfType<Trainee>().SingleOrDefault(t => t.Id == id);
+            var traieeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == id);
             if (traieeInDb == null) return HttpNotFound();
-            _context.Users.Remove(traieeInDb);
+            _context.Trainees.Remove(traieeInDb);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -34,7 +34,7 @@ namespace HRManagement.Controllers
         [HttpGet]
         public ActionResult Update(string id)
         {
-            var traineeInDb = _context.Users.OfType<Trainee>().SingleOrDefault(t => t.Id == id);
+            var traineeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == id);
             if (traineeInDb == null) return HttpNotFound();
             return View(traineeInDb);
         }
@@ -42,7 +42,7 @@ namespace HRManagement.Controllers
         [HttpPost]
         public ActionResult Update(Trainee trainee)
         {
-            var traineeInDb = _context.Users.OfType<Trainee>().SingleOrDefault(t => t.Id == trainee.Id);
+            var traineeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == trainee.TraineeId);
             {
                 traineeInDb.FullName = trainee.FullName;
                 traineeInDb.DateOfBirth = trainee.DateOfBirth;
@@ -56,7 +56,7 @@ namespace HRManagement.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction ("Index");
+            return RedirectToAction("Index");
         }
 
         public ActionResult ViewAssignedCourses(string id)
