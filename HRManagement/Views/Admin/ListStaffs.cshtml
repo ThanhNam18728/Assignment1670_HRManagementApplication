@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HRManagement.Models.Staff>
+@{
+    ViewBag.Title = "ListStaffs";
+}
+
+<h2>List Of Training Staffs</h2>
+
+<div class="form-group">
+    @Html.ActionLink("Back", "Index", "Admin", null, new { @class = "btn btn-default" })
+</div>
+
+
+
+
+<div class="form-group">
+    @Html.ActionLink("Create New Staff", "Register", "Account", null, new { @class = "btn btn-success" })
+</div>
+
+
+
+@using (Html.BeginForm("ListStaffs", "Admin", "POST"))
+{
+    <div class="form-group">
+        @Html.TextBox("searchString", "")
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Staff Name</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FullName</td>
+
+                <td>
+                    @Html.ActionLink("Reset Password", "ResetPassword", "Account", new { id = item.StaffId }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Update Profile", "UpdateStaff", "Admin", new { id = item.StaffId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "DeleteStaff", "Admin", new { id = item.StaffId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

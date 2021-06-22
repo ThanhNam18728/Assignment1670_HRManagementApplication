@@ -76,6 +76,18 @@ namespace HRManagement.Controllers
             return RedirectToAction("ListTrainers");
         }
 
-        
+        public ActionResult ListStaffs(string searchString)
+        {
+
+            var staffInDb = _context.Staffs.ToList();
+            if (!searchString.IsNullOrWhiteSpace())
+            {
+                staffInDb = _context.Staffs
+                .Where(m => m.FullName.Contains(searchString))
+                .ToList();
+            }
+
+            return View(staffInDb);
+        }
     }
 }

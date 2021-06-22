@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<HRManagement.Models.Trainer>
 @{
-    ViewBag.Title = "TrainerList";
+    ViewBag.Title = "ListTrainers";
 }
 
 <h2>List Of Trainers</h2>
 
 <div class="form-group">
-    @Html.ActionLink("Back", "Index", "Home", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Back", "Index", "Admin", null, new { @class = "btn btn-default" })
 </div>
 
 
@@ -42,14 +42,12 @@
         {
             <tr>
                 <td>@item.FullName</td>
-
                 
                 <td>
-                    @Html.ActionLink("Reset Password", "ResetTrainer", "Account", new { id = item.TrainerId }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Reset Password", "ResetPassword", "Account", new { id = item.TrainerId }, new { @class = "btn btn-warning" })
                     @Html.ActionLink("Update Profile", "UpdateTrainer", "Admin", new { id = item.TrainerId }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Delete", "DeleteTrainer", "Admin", new { id = item.TrainerId }, new { @class = "btn btn-danger" })
-                </td>
-                
+                </td>               
             </tr>
         }
     </tbody>
