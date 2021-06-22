@@ -21,8 +21,7 @@ namespace HRManagement.Controllers
         // GET: Trainers       
         public ActionResult Index()
         {
-            var userId = User.Identity.GetUserId();
-            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId.Equals(userId));
+            var trainerInDb = _context.Users.ToList();
 
             if (trainerInDb == null) return HttpNotFound();
             return View(trainerInDb);

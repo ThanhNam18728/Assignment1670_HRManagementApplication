@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace HRManagement.Models
@@ -64,6 +66,27 @@ namespace HRManagement.Models
 
     public class RegisterViewModel
     {
+        public string FullName { get; set; }
+        [DisplayName("Working Place")]
+        public string WorkingPlace { get; set; }
+        [DisplayName("Email Address")]
+
+        public string EmailAddress { get; set; }
+        [DisplayName("Phone Number")]
+
+        public string Telephone { get; set; }       
+        
+        [DisplayName("Date of Birth")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime DateOfBirth { get; set; }
+
+        [DisplayName("Programing Language")]
+        public string ProgrammingLanguage { get; set; }
+
+        [DisplayName("Toeic Score")]
+        public string ToeicSocre { get; set; }
+        [DisplayName("Department")]
+        public string Department { get; set; }       
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

@@ -187,6 +187,26 @@
     <Compile Include="Migrations\202106211005044_AddDB.Designer.cs">
       <DependentUpon>202106211005044_AddDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106220413130_EditDb.cs" />
+    <Compile Include="Migrations\202106220413130_EditDb.Designer.cs">
+      <DependentUpon>202106220413130_EditDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106220440152_DeleteStaffModel.cs" />
+    <Compile Include="Migrations\202106220440152_DeleteStaffModel.Designer.cs">
+      <DependentUpon>202106220440152_DeleteStaffModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106220903024_updateDb.cs" />
+    <Compile Include="Migrations\202106220903024_updateDb.Designer.cs">
+      <DependentUpon>202106220903024_updateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106220920356_AddAllowNull.cs" />
+    <Compile Include="Migrations\202106220920356_AddAllowNull.Designer.cs">
+      <DependentUpon>202106220920356_AddAllowNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106220925156_AddAllowNullProperties.cs" />
+    <Compile Include="Migrations\202106220925156_AddAllowNullProperties.Designer.cs">
+      <DependentUpon>202106220925156_AddAllowNullProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -198,7 +218,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Trainee.cs" />
     <Compile Include="Models\Trainer.cs" />
-    <Compile Include="Models\Staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CourseCategoryViewModels.cs" />
@@ -282,7 +301,7 @@
     <Content Include="Views\AssignCourse\AssignCourseTrainee.cshtml" />
     <Content Include="Views\Trainers\ViewAssignedCourses.cshtml" />
     <Content Include="Views\Trainees\ViewAssignedCourses.cshtml" />
-    <Content Include="Views\Admin\CreateTrainer.cshtml" />
+    <Content Include="Views\Admin\ListTrainers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,6 +325,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106211005044_AddDB.resx">
       <DependentUpon>202106211005044_AddDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106220413130_EditDb.resx">
+      <DependentUpon>202106220413130_EditDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106220440152_DeleteStaffModel.resx">
+      <DependentUpon>202106220440152_DeleteStaffModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106220903024_updateDb.resx">
+      <DependentUpon>202106220903024_updateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106220920356_AddAllowNull.resx">
+      <DependentUpon>202106220920356_AddAllowNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106220925156_AddAllowNullProperties.resx">
+      <DependentUpon>202106220925156_AddAllowNullProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

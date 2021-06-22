@@ -141,7 +141,7 @@ namespace HRManagement.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(_context.Roles.ToList(), "Name", "Name"); 
+            /*ViewBag.Name = new SelectList(_context.Roles.ToList(), "Name", "Name"); */
             return View();
         }
 
@@ -158,6 +158,28 @@ namespace HRManagement.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    if(model.Role == "Trainer")
+                    {
+                        var trainer = new Trainer
+                        {
+                            FullName = model.FullName,
+                            DateOfBirth = model.DateOfBirth,
+                            TrainerId = user.Id
+                        };
+                        _context.Trainers.Add(trainer);
+                        _context.SaveChanges();
+                    }
+                    if (model.Role == "Trainee")
+                    {
+                        var trainee = new Trainee 
+                        {
+                            FullName = model.FullName,
+                            DateOfBirth = model.DateOfBirth,
+                            TraineeId = user.Id
+                        };
+                        _context.Trainees.Add(trainee);
+                        _context.SaveChanges();
+                    }
                     await this.UserManager.AddToRoleAsync(user.Id, model.Role);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

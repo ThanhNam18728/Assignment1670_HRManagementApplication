@@ -15,13 +15,12 @@ namespace HRManagement.Models
         public string FullName { get; set; }
         [Required]
         [Display(Name = "Date of birth")]
-        public DateTime DateOfBirth { get; set; }
-        [Required]
+        public DateTime DateOfBirth { get; set; }        
         public string Type { get; set; }
-        [Required]
+ 
         [Display(Name = "Working Place")]
         public string WorkingPlace { get; set; }
-        [Required]
+
         [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
         

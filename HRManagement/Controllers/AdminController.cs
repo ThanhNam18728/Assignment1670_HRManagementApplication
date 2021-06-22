@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HRManagement.Models;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -23,6 +24,19 @@ namespace HRManagement.Controllers
         public ActionResult Index()
         {
             return View();
-        }   
+        }
+        public ActionResult ListTrainers(string searchString)
+        {
+
+            var trainerInDb = _context.Trainers.ToList();
+            if (!searchString.IsNullOrWhiteSpace())
+            {
+                trainerInDb = _context.Trainers
+                .Where(m => m.FullName.Contains(searchString))
+                .ToList();
+            }
+
+            return View(trainerInDb);
+        }      
     }
 }
