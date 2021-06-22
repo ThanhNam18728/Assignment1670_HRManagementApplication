@@ -13,12 +13,12 @@ namespace HRManagement.Controllers
     public class AdminController : Controller
     {
         private ApplicationDbContext _context;
-        private UserManager<ApplicationUser> _userManager;
+        /*private UserManager<ApplicationUser> _userManager;*/
 
         public AdminController()
         {
             _context = new ApplicationDbContext();
-            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            //_userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
         }
         // GET: Admin
         public ActionResult Index()
