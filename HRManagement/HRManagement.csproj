@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202106220925156_AddAllowNullProperties.Designer.cs">
       <DependentUpon>202106220925156_AddAllowNullProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106220941408_AddStaffsTable.cs" />
+    <Compile Include="Migrations\202106220941408_AddStaffsTable.Designer.cs">
+      <DependentUpon>202106220941408_AddStaffsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -216,6 +220,7 @@
     <Compile Include="Models\CoursesTrainees.cs" />
     <Compile Include="Models\CoursesTrainers.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Trainee.cs" />
     <Compile Include="Models\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -340,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106220925156_AddAllowNullProperties.resx">
       <DependentUpon>202106220925156_AddAllowNullProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106220941408_AddStaffsTable.resx">
+      <DependentUpon>202106220941408_AddStaffsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

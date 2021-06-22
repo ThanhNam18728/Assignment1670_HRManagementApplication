@@ -180,6 +180,17 @@ namespace HRManagement.Controllers
                         _context.Trainees.Add(trainee);
                         _context.SaveChanges();
                     }
+                    if (model.Role == "Staff")
+                    {
+                        var staff = new Staff
+                        {
+                            FullName = model.FullName,
+                            DateOfBirth = model.DateOfBirth,
+                            StaffId = user.Id
+                        };
+                        _context.Staffs.Add(staff);
+                        _context.SaveChanges();
+                    }
                     await this.UserManager.AddToRoleAsync(user.Id, model.Role);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

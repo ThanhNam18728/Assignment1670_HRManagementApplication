@@ -15,6 +15,7 @@ namespace HRManagement.Models
         public DbSet<CoursesTrainees> CoursesTrainees { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
         public DbSet<Trainee> Trainees { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
 
         public static ApplicationDbContext Create()
         {
