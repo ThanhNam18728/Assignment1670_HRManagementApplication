@@ -113,5 +113,16 @@ namespace HRManagement.Controllers
             _context.SaveChanges();
             return RedirectToAction("ListStaffs");
         }
+
+        public ActionResult DeleteStaff(string id)
+        {
+            var staffInDb = _context.Staffs.SingleOrDefault(t => t.StaffId == id);
+
+            if (staffInDb == null) return HttpNotFound();
+
+            _context.Staffs.Remove(staffInDb);
+            _context.SaveChanges();
+            return RedirectToAction("ListStaffs");
+        }
     }
 }
