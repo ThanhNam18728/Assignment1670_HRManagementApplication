@@ -32,26 +32,11 @@ namespace HRManagement.Controllers
             return View(trainerInDb);
         }
 
-
-        
-        public ActionResult Delete(string id)
-        {
-            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == id);
-
-            if (trainerInDb == null) return HttpNotFound();
-
-            _context.Trainers.Remove(trainerInDb);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
         public ActionResult ViewAssignedCourses(string id)
         {
             var course = _context.CoursesTrainers.Where(t => t.TrainerId == id).Select(t => t.Course).ToList();
 
             return View(course);
         }
-
-
     }
 }

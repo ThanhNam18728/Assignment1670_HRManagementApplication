@@ -62,7 +62,20 @@ namespace HRManagement.Controllers
                 TrainerInDb.Type = trainer.Type;
             }
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ListTrainers");
         }
+
+        public ActionResult DeleteTrainer(string id)
+        {
+            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == id);
+
+            if (trainerInDb == null) return HttpNotFound();
+
+            _context.Trainers.Remove(trainerInDb);
+            _context.SaveChanges();
+            return RedirectToAction("ListTrainers");
+        }
+
+        
     }
 }
