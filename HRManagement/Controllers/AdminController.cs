@@ -89,5 +89,29 @@ namespace HRManagement.Controllers
 
             return View(staffInDb);
         }
+
+        public ActionResult UpdateStaff(string id)
+        {
+            var staffInDb = _context.Staffs.SingleOrDefault(t => t.StaffId == id);
+            if (staffInDb == null) return HttpNotFound();
+
+            return View(staffInDb);
+        }
+        [HttpPost]
+        public ActionResult UpdateStaff(Staff staff)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var staffInDb = _context.Staffs.SingleOrDefault(t => t.StaffId == staff.StaffId);
+            {
+                staffInDb.FullName = staff.FullName;
+                staffInDb.DateOfBirth = staff.DateOfBirth;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("ListStaffs");
+        }
     }
 }
