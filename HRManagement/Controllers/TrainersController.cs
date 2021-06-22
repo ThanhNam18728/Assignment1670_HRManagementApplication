@@ -33,32 +33,7 @@ namespace HRManagement.Controllers
         }
 
 
-        public ActionResult Update(string id)
-        {
-            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == id);
-            if (trainerInDb == null) return HttpNotFound();
-
-            return View(trainerInDb);
-        }
-        [HttpPost]
-        public ActionResult Update(Trainer trainer)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-            var TrainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == trainer.TrainerId);
-            {
-                TrainerInDb.FullName = trainer.FullName;
-                TrainerInDb.DateOfBirth = trainer.DateOfBirth;
-                TrainerInDb.WorkingPlace = trainer.WorkingPlace;
-                TrainerInDb.EmailAddress = trainer.EmailAddress;
-                TrainerInDb.Type = trainer.Type;
-            }
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        
         public ActionResult Delete(string id)
         {
             var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == id);

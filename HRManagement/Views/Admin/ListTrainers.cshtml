@@ -13,7 +13,7 @@
 
 
     <div class="form-group">
-        @Html.ActionLink("Create New Trainer", "CreateTrainer", "Admin", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Create New Trainer", "Register", "Account", null, new { @class = "btn btn-success" })
     </div>
 
 
@@ -46,7 +46,7 @@
                 
                 <td>
                     @Html.ActionLink("Reset Password", "ResetTrainer", "Account", new { id = item.TrainerId }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Update Profile", "UpdateProfileTrainer", "Staff", new { id = item.TrainerId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Update Profile", "UpdateTrainer", "Admin", new { id = item.TrainerId }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Delete", "DeleteTrainer", "Admin", new { id = item.TrainerId }, new { @class = "btn btn-danger" })
                 </td>
                 
