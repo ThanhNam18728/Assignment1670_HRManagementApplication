@@ -14,7 +14,7 @@
         Username
         @Html.HiddenFor(m => m.CourseId)
         @Html.DropDownListFor(m => m.TraineeId,
-         new SelectList(Model.Trainees, "Id", "Username"),
+         new SelectList(Model.Trainees, "TraineeId", "FullName"),
          new { @class = "form-control" }
          )
     </div>

@@ -13,7 +13,6 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Username</th>
             <th>Full Name</th>
             <th>Action</th>
         </tr>
@@ -21,15 +20,14 @@
     <tbody>
         @foreach (var trainee in Model)
         {
-            <tr>
-                <td>@trainee.UserName</td>
-                <td>@trainee.FullName</td>
-                <td>
-                    @Html.ActionLink("Remove Trainee From Course", "RemoveTrainee",
-                      new { id = ViewBag.CourseId, traineeId = trainee.Id },
-                      new { @class = "btn btn-danger" })
-                </td>
-            </tr>
+        <tr>
+            <td>@trainee.FullName</td>            
+            <td>
+                @Html.ActionLink("Remove Trainee From Course", "RemoveTrainee",
+                  new { id = ViewBag.CourseId, traineeId = trainee.TraineeId },
+                  new { @class = "btn btn-danger" })
+            </td>
+        </tr>
         }
     </tbody>
 </table>

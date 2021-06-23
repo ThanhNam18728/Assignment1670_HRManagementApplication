@@ -147,11 +147,11 @@ namespace HRManagement.Controllers
         [HttpGet]
         public ActionResult AssignCourseTrainee(int id)
         {
-            var trainee = _context.Users.OfType<Trainee>().ToList();
+            var trainee = _context.Trainees.ToList();
 
-            var traineesInCourse = _context.CoursesTrainers
+            var traineesInCourse = _context.CoursesTrainees
               .Where(t => t.CourseId == id)
-              .Select(t => t.Trainer)
+              .Select(t => t.Trainee)
               .ToList();
 
             var VModel = new CourseTraineesViewModel();
@@ -206,7 +206,7 @@ namespace HRManagement.Controllers
             _context.CoursesTrainees.Remove(traineeInCourse);
             _context.SaveChanges();
 
-            return RedirectToAction("Details", new { id = id });
+            return RedirectToAction("ListTrainees", new { id = id });
         }
 
 
