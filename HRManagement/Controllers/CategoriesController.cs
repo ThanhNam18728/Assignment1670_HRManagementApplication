@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HRManagement.Models;
+using Microsoft.Ajax.Utilities;
 
 namespace HRManagement.Controllers
 {
@@ -17,9 +18,14 @@ namespace HRManagement.Controllers
         }
 
         // GET: Categories
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            var categories = _context.Categories.ToList();           
+            var categories = _context.Categories.ToList();
+            if (!searchString.IsNullOrWhiteSpace())
+            {
+                categories = _context.Categories.Where(c => c.Name.Contains(searchString)).ToList();
+            }
+            
             return View(categories);
         }
 

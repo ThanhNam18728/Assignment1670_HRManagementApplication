@@ -25,8 +25,9 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
                     <li>@Html.ActionLink("Assign Course", "Index", "AssignCourse")</li>
-                    <li>@Html.ActionLink("Management Trainers", "Index", "Trainers")</li>
-                    <li>@Html.ActionLink("Management Trainees", "Index", "Trainees")</li>
+                    <li>@Html.ActionLink("Management Trainers", "ListTrainers", "Admin")</li>
+                    <li>@Html.ActionLink("Management Training Staff", "ListStaffs", "Admin")</li>
+                    <li>@Html.ActionLink("Management Trainees", "ListTrainees", "Staff")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

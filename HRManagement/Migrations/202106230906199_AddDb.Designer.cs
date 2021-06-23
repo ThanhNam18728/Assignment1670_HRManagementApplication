@@ -7,13 +7,13 @@ namespace HRManagement.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddTraineesTable : IMigrationMetadata
+    public sealed partial class AddDb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTraineesTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDb));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106100234430_AddTraineesTable"; }
+            get { return "202106230906199_AddDb"; }
         }
         
         string IMigrationMetadata.Source

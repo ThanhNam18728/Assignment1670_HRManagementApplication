@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HRManagement.Models;
-
+using Microsoft.AspNet.Identity.EntityFramework;
 namespace HRManagement.Controllers
 {
     [Authorize]
@@ -17,9 +17,11 @@ namespace HRManagement.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -139,6 +141,7 @@ namespace HRManagement.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            /*ViewBag.Name = new SelectList(_context.Roles.ToList(), "Name", "Name"); */
             return View();
         }
 
@@ -155,6 +158,40 @@ namespace HRManagement.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    if(model.Role == "Trainer")
+                    {
+                        var trainer = new Trainer
+                        {
+                            FullName = model.FullName,
+                            DateOfBirth = model.DateOfBirth,
+                            TrainerId = user.Id
+                        };
+                        _context.Trainers.Add(trainer);
+                        _context.SaveChanges();
+                    }
+                    if (model.Role == "Trainee")
+                    {
+                        var trainee = new Trainee 
+                        {
+                            FullName = model.FullName,
+                            DateOfBirth = model.DateOfBirth,
+                            TraineeId = user.Id
+                        };
+                        _context.Trainees.Add(trainee);
+                        _context.SaveChanges();
+                    }
+                    if (model.Role == "Staff")
+                    {
+                        var staff = new Staff
+                        {
+                            FullName = model.FullName,
+                            DateOfBirth = model.DateOfBirth,
+                            StaffId = user.Id
+                        };
+                        _context.Staffs.Add(staff);
+                        _context.SaveChanges();
+                    }
+                    await this.UserManager.AddToRoleAsync(user.Id, model.Role);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

@@ -3,21 +3,61 @@
     ViewBag.Title = "ViewProfile";
 }
 
-<h2>ViewProfile</h2>
+<h2>My Profile</h2>
 
-<ul>
-    <li>#: @Model.Id</li>
-    <li>Full Name: @Model.FullName</li>
-    <li>Date of birth: @Model.DateOfBirth</li>
-    <li>User Name: @Model.UserName</li>
-    <li>Education: @Model.Education</li>
-    <li>Programming Language: @Model.ProgrammingLanguage</li>
-    <li>ToeicScore: @Model.ToeicScore</li>
-    <li>Experience: @Model.Experience</li>
-    <li>Department: @Model.Department</li>
-    <li>Location: @Model.Location</li>
-</ul>
 
-@Html.ActionLink("Back", "Index", "Trainees",
-    null,
-    new { @class = "btn btn-primary" })
+
+<div class="form-group">
+    @Html.ActionLink("Back", "Index", "Home", null, new { @class = "btn btn-default" })
+</div>
+
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.FullName)
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.DateOfBirth)
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @Html.LabelFor(m => m.Education, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.Education)
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @Html.LabelFor(m => m.ProgrammingLanguage, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.ProgrammingLanguage)
+        </div>
+    </div>
+    <div class="panel-body">
+        @Html.LabelFor(m => m.ToeicScore, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.ToeicScore)
+        </div>
+    </div>
+    <div class="panel-body">
+        @Html.LabelFor(m => m.Experience, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.Experience)
+        </div>
+    </div>
+    <div class="panel-body">
+        @Html.LabelFor(m => m.Location, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.Location)
+        </div>
+    </div>
+</div>

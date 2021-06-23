@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using HRManagement.Models;
 using HRManagement.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace HRManagement.Controllers
 {
@@ -19,60 +20,47 @@ namespace HRManagement.Controllers
 
         // GET: Trainers       
         public ActionResult Index()
-        {
-            var trainersInDb = _context.Users.OfType<Trainer>().ToList();
-            return View(trainersInDb);
+        {           
+            return View();
         }
-        public ActionResult Details(string id)
+        public ActionResult ViewProfile(string id)
         {
-            var trainerInDb = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == id);
+            var currentTrainerId = User.Identity.GetUserId();
+            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == currentTrainerId);
+
+            return View(trainerInDb);            
+        }
+
+        [HttpGet]
+        public ActionResult EditProfile()
+        {
+            var currentUserId = User.Identity.GetUserId();
+            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == currentUserId);
             return View(trainerInDb);
         }
 
-
-        public ActionResult Update(string id)
-        {
-            var trainerInDb = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == id);
-            if (trainerInDb == null) return HttpNotFound();
-
-            return View(trainerInDb);
-        }
         [HttpPost]
-        public ActionResult Update(Trainer trainer)
+        public ActionResult EditProfile(Trainer trainer)
         {
-            if (!ModelState.IsValid)
-            {
-               return View();
-            }
+            var currentUserId = User.Identity.GetUserId();
+            var trainerInDb = _context.Trainers.SingleOrDefault(c => c.TrainerId == currentUserId);
 
-            var TrainerInDb = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == trainer.Id);
-            {
-                TrainerInDb.FullName = trainer.FullName;
-                TrainerInDb.UserName = trainer.UserName;
-                TrainerInDb.DateOfBirth = trainer.DateOfBirth;
-                TrainerInDb.PhoneNumber = trainer.PhoneNumber;
-                TrainerInDb.WorkingPlace = trainer.WorkingPlace;
-                TrainerInDb.EmailAddress = trainer.EmailAddress;
-                TrainerInDb.Type = trainer.Type;
-            }
+            trainerInDb.EmailAddress = trainer.EmailAddress;
+            trainerInDb.FullName = trainer.FullName;
+            trainerInDb.DateOfBirth = trainer.DateOfBirth;
+            trainerInDb.Type = trainer.Type;
+            trainerInDb.WorkingPlace = trainer.WorkingPlace;
+
             _context.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ViewProfile", "Trainers");
         }
-        public ActionResult Delete(string id)
-        {
-            var trainerInDb = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == id);
 
-            if (trainerInDb == null) return HttpNotFound();
 
-            _context.Users.Remove(trainerInDb);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-        }   
-        
-        public ActionResult ViewAssignedCourses(string id)
+        public ActionResult ViewAssignedCourses()
         {
-            var course = _context.CoursesTrainers.Where(t => t.TrainerId == id).Select(t => t.Course).ToList();
-           
+            var currentTrainerId = User.Identity.GetUserId();
+            var course = _context.CoursesTrainers.Where(t => t.TrainerId == currentTrainerId).Select(t => t.Course).ToList();
+
             return View(course);
         }
     }
