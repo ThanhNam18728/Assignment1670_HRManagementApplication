@@ -9,6 +9,7 @@
 {
 
     <div class="form-group">
+        @Html.HiddenFor(model => model.TraineeId)
         @Html.LabelFor(model => model.FullName)
         @Html.TextAreaFor(model => model.FullName, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })

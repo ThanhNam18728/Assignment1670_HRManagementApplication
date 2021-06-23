@@ -43,9 +43,15 @@ namespace HRManagement.Controllers
             return View(traineeInDb);
         }
 
-        [HttpPost]
+      
+      
         public ActionResult UpdateTrainee(Trainee trainee)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             var traineeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == trainee.TraineeId);
             {
                 traineeInDb.FullName = trainee.FullName;
@@ -57,9 +63,7 @@ namespace HRManagement.Controllers
                 traineeInDb.Experience = trainee.Experience;
                 traineeInDb.Location = trainee.Location;
             }
-
             _context.SaveChanges();
-
             return RedirectToAction("ListTrainees");
         }
     }
