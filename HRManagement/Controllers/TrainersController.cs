@@ -20,17 +20,17 @@ namespace HRManagement.Controllers
 
         // GET: Trainers       
         public ActionResult Index()
+        {           
+            return View();
+        }
+        public ActionResult ViewProfile(string id)
         {
-            var trainerInDb = _context.Users.ToList();
+            var currentTrainerId = User.Identity.GetUserId();
+            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == currentTrainerId);
 
-            if (trainerInDb == null) return HttpNotFound();
-            return View(trainerInDb);
+            return View(trainerInDb);            
         }
-        public ActionResult Details(string id)
-        {
-            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == id);
-            return View(trainerInDb);
-        }
+        
 
         public ActionResult ViewAssignedCourses(string id)
         {

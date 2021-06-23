@@ -1,0 +1,52 @@
+﻿@model HRManagement.Models.Trainer
+@{
+    ViewBag.Title = "ViewProfile";
+}
+
+<h2>My Profile</h2>
+
+<div class="form-group">
+    @Html.ActionLink("Back", "Index", "Home", null, new { @class = "btn btn-default" })
+</div>
+
+<div class="form-group">
+    @Html.ActionLink("Edit Profiles", "EditProfile", "Trainers", null, new { @class = "btn btn-primary" })
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        @Html.LabelFor(m => m.EmailAddress, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.EmailAddress)
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.FullName)
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.DateOfBirth)
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @Html.LabelFor(m => m.WorkingPlace, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.WorkingPlace)
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @Html.LabelFor(m => m.Type, new { @class = "col-md-2 control-label" })
+        <div>
+            @Html.DisplayFor(m => m.Type)
+        </div>
+    </div>
+</div>

@@ -14,22 +14,13 @@ namespace HRManagement.Controllers
         // GET: Trainees
         public ActionResult Index()
         {
-            return View(_context.Trainees.ToList());
+            return View();
         }
         public ActionResult ViewProfile(string id)
-        {
-            if (id == null) return HttpNotFound();
-            var traineeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == id);
-            return View(traineeInDb);
+        {            
+            return View();
         }
-        public ActionResult Delete(string id)
-        {
-            var traieeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == id);
-            if (traieeInDb == null) return HttpNotFound();
-            _context.Trainees.Remove(traieeInDb);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        
 
 
 

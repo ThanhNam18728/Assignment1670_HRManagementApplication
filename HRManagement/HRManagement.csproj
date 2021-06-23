@@ -265,8 +265,6 @@
     <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
-    <Content Include="Views\Trainers\Index.cshtml" />
-    <Content Include="Views\Trainers\Details.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Trainees\Index.cshtml" />
     <Content Include="Views\Trainees\ViewProfile.cshtml" />
@@ -284,6 +282,8 @@
     <Content Include="Views\Admin\UpdateStaff.cshtml" />
     <Content Include="Views\Staff\ListTrainees.cshtml" />
     <Content Include="Views\Staff\UpdateTrainee.cshtml" />
+    <Content Include="Views\Trainees\UpdateTrainee.cshtml" />
+    <Content Include="Views\Trainers\ViewProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
