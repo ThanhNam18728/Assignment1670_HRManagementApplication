@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace HRManagement.Controllers
 {
+    [Authorize(Roles ="Trainer")]
     public class TrainersController : Controller
     {
         private ApplicationDbContext _context;
@@ -62,6 +63,6 @@ namespace HRManagement.Controllers
             var course = _context.CoursesTrainers.Where(t => t.TrainerId == currentTrainerId).Select(t => t.Course).ToList();
 
             return View(course);
-        }
+        }       
     }
 }
