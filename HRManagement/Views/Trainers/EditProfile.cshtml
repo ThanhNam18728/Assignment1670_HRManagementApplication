@@ -1,0 +1,38 @@
+﻿@model HRManagement.Models.Trainer
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+<h2>Edit My Profile</h2>
+
+@using (Html.BeginForm("EditProfile", "Trainers", "POST"))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.FullName)
+        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmailAddress)
+        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateOfBirth)
+        @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.WorkingPlace)
+        @Html.TextBoxFor(model => model.WorkingPlace, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Type)
+        @Html.TextBoxFor(model => model.Type, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.ActionLink("Cancel", "ViewProfile", "Trainers", null, new { @class = "btn btn-default" })
+        <button type="submit" class="btn btn-success">Update</button>
+    </div>
+}

@@ -30,7 +30,31 @@ namespace HRManagement.Controllers
 
             return View(trainerInDb);            
         }
-        
+
+        [HttpGet]
+        public ActionResult EditProfile()
+        {
+            var currentUserId = User.Identity.GetUserId();
+            var trainerInDb = _context.Trainers.SingleOrDefault(t => t.TrainerId == currentUserId);
+            return View(trainerInDb);
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(Trainer trainer)
+        {
+            var currentUserId = User.Identity.GetUserId();
+            var trainerInDb = _context.Trainers.SingleOrDefault(c => c.TrainerId == currentUserId);
+
+            trainerInDb.EmailAddress = trainer.EmailAddress;
+            trainerInDb.FullName = trainer.FullName;
+            trainerInDb.DateOfBirth = trainer.DateOfBirth;
+            trainerInDb.Type = trainer.Type;
+            trainerInDb.WorkingPlace = trainer.WorkingPlace;
+
+            _context.SaveChanges();
+            return RedirectToAction("ViewProfile", "Trainers");
+        }
+
 
         public ActionResult ViewAssignedCourses(string id)
         {
