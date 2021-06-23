@@ -56,9 +56,10 @@ namespace HRManagement.Controllers
         }
 
 
-        public ActionResult ViewAssignedCourses(string id)
+        public ActionResult ViewAssignedCourses()
         {
-            var course = _context.CoursesTrainers.Where(t => t.TrainerId == id).Select(t => t.Course).ToList();
+            var currentTrainerId = User.Identity.GetUserId();
+            var course = _context.CoursesTrainers.Where(t => t.TrainerId == currentTrainerId).Select(t => t.Course).ToList();
 
             return View(course);
         }
