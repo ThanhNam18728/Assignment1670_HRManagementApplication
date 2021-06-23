@@ -3,7 +3,7 @@ namespace HRManagement.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FixErrorDB : DbMigration
+    public partial class AddDb : DbMigration
     {
         public override void Up()
         {
@@ -31,39 +31,35 @@ namespace HRManagement.Migrations
                 .Index(t => t.CategoryId);
             
             CreateTable(
-                "dbo.AspNetRoles",
+                "dbo.CoursesTrainees",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
+                        TraineeId = c.String(nullable: false, maxLength: 128),
+                        CourseId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+                .PrimaryKey(t => new { t.TraineeId, t.CourseId })
+                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .ForeignKey("dbo.Trainees", t => t.TraineeId, cascadeDelete: true)
+                .Index(t => t.TraineeId)
+                .Index(t => t.CourseId);
             
             CreateTable(
-                "dbo.AspNetUserRoles",
+                "dbo.Trainees",
                 c => new
                     {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.RoleId);
-            
-            CreateTable(
-                "dbo.Staffs",
-                c => new
-                    {
-                        StaffId = c.String(nullable: false, maxLength: 128),
+                        TraineeId = c.String(nullable: false, maxLength: 128),
                         FullName = c.String(nullable: false),
                         DateOfBirth = c.DateTime(nullable: false),
+                        Education = c.String(),
+                        ProgrammingLanguage = c.String(),
+                        ToeicScore = c.Int(nullable: false),
+                        Experience = c.String(),
+                        Department = c.String(),
+                        Location = c.String(),
                     })
-                .PrimaryKey(t => t.StaffId)
-                .ForeignKey("dbo.AspNetUsers", t => t.StaffId)
-                .Index(t => t.StaffId);
+                .PrimaryKey(t => t.TraineeId)
+                .ForeignKey("dbo.AspNetUsers", t => t.TraineeId)
+                .Index(t => t.TraineeId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -111,22 +107,30 @@ namespace HRManagement.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.Trainees",
+                "dbo.AspNetUserRoles",
                 c => new
                     {
-                        TraineeId = c.String(nullable: false, maxLength: 128),
-                        FullName = c.String(nullable: false),
-                        DateOfBirth = c.DateTime(nullable: false),
-                        Education = c.String(),
-                        ProgrammingLanguage = c.String(nullable: false),
-                        ToeicScore = c.Int(nullable: false),
-                        Experience = c.String(nullable: false),
-                        Department = c.String(nullable: false),
-                        Location = c.String(nullable: false),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
                     })
-                .PrimaryKey(t => t.TraineeId)
-                .ForeignKey("dbo.AspNetUsers", t => t.TraineeId)
-                .Index(t => t.TraineeId);
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.CoursesTrainers",
+                c => new
+                    {
+                        TrainerId = c.String(nullable: false, maxLength: 128),
+                        CourseId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.TrainerId, t.CourseId })
+                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .ForeignKey("dbo.Trainers", t => t.TrainerId, cascadeDelete: true)
+                .Index(t => t.TrainerId)
+                .Index(t => t.CourseId);
             
             CreateTable(
                 "dbo.Trainers",
@@ -135,44 +139,76 @@ namespace HRManagement.Migrations
                         TrainerId = c.String(nullable: false, maxLength: 128),
                         FullName = c.String(nullable: false),
                         DateOfBirth = c.DateTime(nullable: false),
-                        Type = c.String(nullable: false),
-                        WorkingPlace = c.String(nullable: false),
-                        EmailAddress = c.String(nullable: false),
+                        Type = c.String(),
+                        WorkingPlace = c.String(),
+                        EmailAddress = c.String(),
                     })
                 .PrimaryKey(t => t.TrainerId)
                 .ForeignKey("dbo.AspNetUsers", t => t.TrainerId)
                 .Index(t => t.TrainerId);
             
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
+                "dbo.Staffs",
+                c => new
+                    {
+                        StaffId = c.String(nullable: false, maxLength: 128),
+                        FullName = c.String(nullable: false),
+                        DateOfBirth = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.StaffId)
+                .ForeignKey("dbo.AspNetUsers", t => t.StaffId)
+                .Index(t => t.StaffId);
+            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Trainers", "TrainerId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Trainees", "TraineeId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Staffs", "StaffId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.CoursesTrainers", "TrainerId", "dbo.Trainers");
+            DropForeignKey("dbo.Trainers", "TrainerId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.CoursesTrainers", "CourseId", "dbo.Courses");
+            DropForeignKey("dbo.CoursesTrainees", "TraineeId", "dbo.Trainees");
+            DropForeignKey("dbo.Trainees", "TraineeId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.CoursesTrainees", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.Courses", "CategoryId", "dbo.Categories");
+            DropIndex("dbo.Staffs", new[] { "StaffId" });
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Trainers", new[] { "TrainerId" });
-            DropIndex("dbo.Trainees", new[] { "TraineeId" });
+            DropIndex("dbo.CoursesTrainers", new[] { "CourseId" });
+            DropIndex("dbo.CoursesTrainers", new[] { "TrainerId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Staffs", new[] { "StaffId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Trainees", new[] { "TraineeId" });
+            DropIndex("dbo.CoursesTrainees", new[] { "CourseId" });
+            DropIndex("dbo.CoursesTrainees", new[] { "TraineeId" });
             DropIndex("dbo.Courses", new[] { "CategoryId" });
+            DropTable("dbo.Staffs");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.Trainers");
-            DropTable("dbo.Trainees");
+            DropTable("dbo.CoursesTrainers");
+            DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.Staffs");
-            DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Trainees");
+            DropTable("dbo.CoursesTrainees");
             DropTable("dbo.Courses");
             DropTable("dbo.Categories");
         }

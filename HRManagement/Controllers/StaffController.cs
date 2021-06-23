@@ -66,5 +66,16 @@ namespace HRManagement.Controllers
             _context.SaveChanges();
             return RedirectToAction("ListTrainees");
         }
+
+        public ActionResult DeleteTrainee(string id)
+        {
+            var traineeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == id);
+
+            if (traineeInDb == null) return HttpNotFound();
+
+            _context.Trainees.Remove(traineeInDb);
+            _context.SaveChanges();
+            return RedirectToAction("ListTrainees");
+        }
     }
 }

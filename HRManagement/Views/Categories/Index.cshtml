@@ -7,6 +7,14 @@
 <h2>Manage Category</h2>
 <h3 class="btn btn-default" style="margin-bottom: 7px;">@Html.ActionLink("Create Category", "Create", "Categories")</h3>
 
+<div class="form-group">
+    @using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+    {
+        @Html.TextBox("searchString", "")
+        <button type="submit"><i class="fa fa-search"></i></button>
+    }
+</div>
+
 <table class="table table-bordered">
     <thead>
         <tr>

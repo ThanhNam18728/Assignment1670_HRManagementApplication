@@ -31,7 +31,7 @@ namespace HRManagement.Controllers
             return RedirectToAction("Index");
         }
 
-        
+
 
         public ActionResult ViewAssignedCourses(string id)
         {

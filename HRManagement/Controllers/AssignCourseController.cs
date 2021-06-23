@@ -41,6 +41,7 @@ namespace HRManagement.Controllers
               .Where(t => t.CourseId == id)
               .Select(t => t.Trainer)
               .ToList();
+            if (users == null) return HttpNotFound();
 
             ViewBag.CourseId = id;
 
@@ -56,7 +57,7 @@ namespace HRManagement.Controllers
         [HttpGet]
         public ActionResult AssignCourseTrainer(int id)
         {
-            var trainer = _context.Users.OfType<Trainer>().ToList();
+            var trainer = _context.Trainers.ToList();
 
             var trainersInCourse = _context.CoursesTrainers
               .Where(t => t.CourseId == id)

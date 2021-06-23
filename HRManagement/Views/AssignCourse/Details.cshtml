@@ -13,8 +13,8 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Username</th>
             <th>Full Name</th>
+            <th>Email</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -22,11 +22,11 @@
         @foreach (var trainer in Model)
         {
             <tr>
-                <td>@trainer.UserName</td>
                 <td>@trainer.FullName</td>
+                <td>@trainer.EmailAddress</td>
                 <td>
                     @Html.ActionLink("Remove Trainer From Course","RemoveTrainer",
-                      new { id = ViewBag.CourseId, trainerId = trainer.Id },
+                      new { id = ViewBag.CourseId, trainerId = trainer.TrainerId},
                       new { @class = "btn btn-danger" })
                 </td>
             </tr>
