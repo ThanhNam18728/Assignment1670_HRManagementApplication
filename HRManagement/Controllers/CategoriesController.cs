@@ -8,6 +8,7 @@ using Microsoft.Ajax.Utilities;
 
 namespace HRManagement.Controllers
 {
+    [Authorize(Roles ="Staff")]
     public class CategoriesController : Controller
     {
         private ApplicationDbContext _context;

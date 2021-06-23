@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HRManagement.Models;
+using HRManagement.ViewModels;
 using Microsoft.Ajax.Utilities;
 
 namespace HRManagement.Controllers
@@ -77,6 +78,6 @@ namespace HRManagement.Controllers
             _context.Trainees.Remove(traineeInDb);
             _context.SaveChanges();
             return RedirectToAction("ListTrainees");
-        }
+        }      
     }
 }

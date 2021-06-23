@@ -27,14 +27,12 @@
                     {
                         <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
                         <li>@Html.ActionLink("Assign Course", "Index", "AssignCourse")</li>
-                        <li>@Html.ActionLink("Management Trainees", "ListTrainees", "Staff")</li>
-                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                        <li>@Html.ActionLink("Management Trainees", "ListTrainees", "Staff")</li>   
                     }
                     @if (User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Management Trainers", "ListTrainers", "Admin")</li>
                         <li>@Html.ActionLink("Management Training Staff", "ListStaffs", "Admin")</li>
-                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                     }
 
                     @if (User.IsInRole("Trainer"))

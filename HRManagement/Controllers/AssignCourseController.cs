@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace HRManagement.Controllers
 {
+    [Authorize(Roles ="Staff")]
     public class AssignCourseController : Controller
     {
         private UserManager<ApplicationUser> _userManager;
