@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using HRManagement.Models;
+using Microsoft.AspNet.Identity;
 
 namespace HRManagement.Controllers
 {
@@ -11,22 +12,22 @@ namespace HRManagement.Controllers
         {
             _context = new ApplicationDbContext();
         }
-        // GET: Trainees
-        public ActionResult Index()
-        {
-            return View();
-        }
+       
         public ActionResult ViewProfile(string id)
-        {            
-            return View();
+        {
+            var currentTraineeId = User.Identity.GetUserId();
+            var traineeInDb = _context.Trainees.SingleOrDefault(t => t.TraineeId == currentTraineeId);
+
+            return View(traineeInDb);
         }
         
 
 
 
-        public ActionResult ViewAssignedCourses(string id)
+        public ActionResult ViewAssignedCourses()
         {
-            var courses = _context.CoursesTrainees.Where(t => t.TraineeId == id).Select(t => t.Course).ToList();
+            var currentTraineeId = User.Identity.GetUserId();
+            var courses = _context.CoursesTrainees.Where(t => t.TraineeId == currentTraineeId).Select(t => t.Course).ToList();
 
             return View(courses);
         }
