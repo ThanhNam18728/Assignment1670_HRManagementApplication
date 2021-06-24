@@ -283,6 +283,7 @@
     <Content Include="Views\Trainers\ViewProfile.cshtml" />
     <Content Include="Views\Trainers\EditProfile.cshtml" />
     <Content Include="Views\Trainees\AvailableCourse.cshtml" />
+    <Content Include="Views\Staff\ListCourseTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

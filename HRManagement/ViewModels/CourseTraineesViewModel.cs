@@ -11,5 +11,6 @@ namespace HRManagement.ViewModels
         public int CourseId { get; set; }
         public string TraineeId { get; set; }
         public IEnumerable<Trainee> Trainees { get; set; }
+        public IEnumerable<Course> Courses { get; set; }
     }
 }

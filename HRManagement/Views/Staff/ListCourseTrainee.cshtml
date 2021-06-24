@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "ListCourseTrainee";
+}
+
+<h2>Courses Of This Trainee</h2>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Course Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>
+                @Html.ActionLink("Change Course", "ChangeCourseTrainee","Staff",new { id = item.Id } ,new {@class = "btn btn-danger"})
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Back", "ListTrainees","Staff", new {@class = "btn btn-primary"})
+</div>

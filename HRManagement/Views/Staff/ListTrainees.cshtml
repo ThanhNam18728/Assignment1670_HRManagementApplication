@@ -43,9 +43,10 @@
             <tr>
                 <td>@item.FullName</td>
 
-                <td>                   
+                <td>
                     @Html.ActionLink("Update Profile", "UpdateTrainee", "Staff", new { id = item.TraineeId }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Delete", "DeleteTrainee", "Staff", new { id = item.TraineeId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("List Course", "ListCourseTrainee", "Staff", new { id = item.TraineeId }, new { @class = "btn btn-warning" })
                 </td>
             </tr>
         }

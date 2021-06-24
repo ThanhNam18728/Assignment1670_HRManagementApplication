@@ -46,7 +46,7 @@ namespace HRManagement.Controllers
         }
 
       
-      
+      [HttpPost]
         public ActionResult UpdateTrainee(Trainee trainee)
         {
             if (!ModelState.IsValid)
@@ -78,6 +78,17 @@ namespace HRManagement.Controllers
             _context.Trainees.Remove(traineeInDb);
             _context.SaveChanges();
             return RedirectToAction("ListTrainees");
-        }      
+        }
+
+
+        [HttpGet]
+        public ActionResult ListCourseTrainee(string id)
+        {
+            var courses = _context.CoursesTrainees.Where(t => t.TraineeId == id).Select(t => t.Course).ToList();
+
+            return View(courses);
+            
+        }        
+        
     }
 }
